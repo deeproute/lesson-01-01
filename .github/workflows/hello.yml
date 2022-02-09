@@ -1,17 +1,36 @@
-name: hello
-
-on: [push]
+name: challenge01
+on:
+  push:
+    branches:
+      - "main"
+  pull_request:
+    branches:
+      - "main"
 
 jobs:
-  build:
-
+  job1:
+    name: Print Date - Ubuntu
+    runs-on: ubuntu-latest
+    steps:
+    - name: Run Date Command
+      run: date
+  job2:
+    name: Print Date - Windows
+    runs-on: windows-latest
+    steps:
+    - name: Run Date Command
+      run: date
+  job3:
+    name: Third Job
+    runs-on: macos-latest
+    steps:
+    - name: Run Date Command
+      run: date
+  job4:
+    name: Fourth Job
+    needs: [job1, job2, job3]
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
     - name: Run a one-line script
-      run: echo Hello, world!
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+      run: echo Done!
