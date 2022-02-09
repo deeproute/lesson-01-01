@@ -21,16 +21,16 @@ jobs:
     - name: Run Date Command
       run: date
   job3:
-    name: Third Job
+    name: Print Date - MacOS
     runs-on: macos-latest
     steps:
     - name: Run Date Command
       run: date
   job4:
-    name: Fourth Job
+    name: Print Date - Complete
     needs: [job1, job2, job3]
     runs-on: ubuntu-latest
 
     steps:
-    - name: Run a one-line script
+    - name: Run a echo command
       run: echo Done!
